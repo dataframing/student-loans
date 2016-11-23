@@ -14,4 +14,14 @@ One of our datasets, `delta_public_00_12.csv` is around 255 MB, which is well ab
 
 Instead, run:
 
-	zip -r -X Archive.zip *
+	unzip data.zip
+	
+This will sometimes create a directory called `__MACOSX` — feel free to delete it with
+
+	rm -rf __MACOSX
+	
+When you're done working on the data and made a significant change to the CSV files, re-zip the directory
+
+	zip data
+	
+then add it, commit it, push it, etc. Thanks!
