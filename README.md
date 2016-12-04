@@ -12,16 +12,14 @@ One of our datasets, `delta_public_00_12.csv` is around 255 MB, which is well ab
 
 ### Do not commit the raw data to your branch/repository or else you're gonna have a bad time.
 
-Instead, run:
+To **compress** the data (with the intent of committing to your repository), run:
 
-	unzip data.zip
+	gzip --r data
 	
-This will sometimes create a directory called `__MACOSX` — feel free to delete it with
+This will recursively zip each file in the `data` directory and let us commit them to GitHub. Then add it, commit it, push it, etc.
 
-	rm -rf __MACOSX
-	
-When you're done working on the data and made a significant change to the CSV files, re-zip the directory
+To **uncompress** the data (with the intent of working on it using `pd.read_csv()` or something), run:
 
-	zip data
+	gzip --r --d data
 	
-then add it, commit it, push it, etc. Thanks!
+This will recursively decompress each `.gz` file in the `data` directory.
